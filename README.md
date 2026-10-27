@@ -37,8 +37,12 @@ Open http://localhost:9180/.
 ./scripts/install.sh
 ```
 
-See [docs/operations.md](docs/operations.md) for systemd, Docker (Nix flake),
-LAN access, backup and troubleshooting.
+On NixOS, import `nixosModules.default` from the flake and set
+`services.isp-snitch.enable = true`; `homeManagerModules.default` runs it as a
+user service.
+
+See [docs/operations.md](docs/operations.md) for systemd, NixOS, Home Manager,
+Docker (Nix flake), LAN access, backup and troubleshooting.
 
 ## Configuration
 

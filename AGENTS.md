@@ -33,6 +33,7 @@ devbox run check   # cargo fmt --check && clippy -D warnings && cargo test
 | API | `curl -s localhost:9180/api/targets` while `devbox run dev` runs |
 | UI | open `http://localhost:9180/`, or take headless screenshots of the dashboard at desktop and phone width and of a target page: `chromium --headless=new --screenshot=out.png --window-size=1600,1000 --virtual-time-budget=5000 'http://localhost:9180/#r=6h'` (then `--window-size=420,2400`, and `/target/1#r=6h`) |
 | Packaging | `nix --extra-experimental-features 'nix-command flakes' build .#default` and `.#docker` |
+| Nix modules (`nix/`) | `nix --extra-experimental-features 'nix-command flakes' flake check` passes, including the `nixos-module` VM test (needs KVM) |
 | Deployed service (BigOne) | `devbox run deploy` (passwordless; see `docs/operations.md`), then `journalctl -u isp-snitch -n 20 -o cat` shows `startup` and a `probe_flush` within 70 s |
 
 ## Repo map
@@ -49,6 +50,7 @@ src/service.rs   wiring for `run`
 src/wide.rs      wide-event JSON logger
 assets/          UI (plain HTML/CSS/JS, uPlot vendored); compiled into the binary
 deploy/          configs and the systemd unit
+nix/             NixOS and Home Manager modules, VM test
 docs/            architecture, API, operations, ADRs, spec, plan
 ```
 

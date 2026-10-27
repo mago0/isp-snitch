@@ -12,6 +12,8 @@ RestartSec=5
 
 # Ping sockets need no capabilities, only net.ipv4.ping_group_range covering
 # the service group (systemd's default range covers every group).
+# nix/module.nix repeats these settings; the flake check unit-matches-deploy
+# fails until both say the same.
 DynamicUser=yes
 StateDirectory=isp-snitch
 CapabilityBoundingSet=

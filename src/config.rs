@@ -81,6 +81,7 @@ struct RawTarget {
     addr: String,
 }
 
+/// `nix/settings.nix` repeats this default: the NixOS module reads the port for `openFirewall`.
 fn default_listen() -> SocketAddr {
     SocketAddr::from(([127, 0, 0, 1], 9180))
 }
